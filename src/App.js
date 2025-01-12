@@ -22,6 +22,10 @@ function App() {
     }
     //end
 
+    function handleClick(event){
+        alert(title)
+    }
+
 // tutaj dodatkowa wiadomosc zalezna od dlugosci wpisanego filmu
     let message;
     if (title.length < 4) {
@@ -44,6 +48,7 @@ function App() {
           <h1>My favorite movies to watch</h1>
           <h2>My favorite movie today is {title}</h2>
           <input type="text" value={title} onChange={handleChange}/>
+          <button onClick={() => alert(title)}> Show movie title</button>
           { // tu wywolanie tego message
 
               // 1 sposob
@@ -53,8 +58,7 @@ function App() {
               title.length > 0 ? <div>{message}</div> : <div>Title empty</div>
           }
 
-
-          {/* //tu link wrzucony do innej stronki
+              {/* //tu link wrzucony do innej stronki
 
           <a
               className="App-link"
@@ -64,11 +68,12 @@ function App() {
           >
               Ucz się Reacta
           </a>
-          */}
+          */
+              }
 
-      </div>
+              </div>
 
-  );
-}
+              );
+          }
 
 export default App;
