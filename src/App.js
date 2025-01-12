@@ -16,12 +16,20 @@ function App() {
     // co sie wpisuje w polu tekstowym
     const [title, setTitle] = useState('Wall-E');
 
+    const movies = [
+        {title: "Wall-E"}
+        ,{title: "The Good Place"}
+        ,{title: "Lost"}
+        ,{title: "Shrek"}
+    ]
+
 
     function handleChange(event) {
         setTitle(event.target.value);
     }
     //end
 
+    // 1 approach to handle Clicks, replaced eventually with the shortened function, when button is created
     function handleClick(event){
         alert(title)
     }
@@ -46,6 +54,11 @@ function App() {
           */}
 
           <h1>My favorite movies to watch</h1>
+          <ul align = "left">
+              {movies.map((movie) => <li key={movie.title}>
+                  {movie.title}</li>)
+              }
+          </ul>
           <h2>My favorite movie today is {title}</h2>
           <input type="text" value={title} onChange={handleChange}/>
           <button onClick={() => alert(title)}> Show movie title</button>
